@@ -7,6 +7,6 @@ public class BackstagePasses extends Item {
 
     @Override
     public Item updateSellInAndQuality() {
-        return new Item(this.name, sellIn - 1, notGreaterThanFifty(sellIn > 10 ? quality + 1 : (sellIn > 5 ? quality + 2 : (sellIn > 0 ? quality + 3 : 0))));
+        return new BackstagePasses(this.name, sellIn - 1, notGreaterThanFifty(sellIn > 10 ? quality + 1 : (sellIn > 5 ? quality + 2 : (sellIn > 0 ? quality + 3 : 0))));
     }
 }

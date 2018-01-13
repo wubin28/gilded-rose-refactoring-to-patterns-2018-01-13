@@ -1,6 +1,6 @@
 package org.katas;
 
-public class Item {
+public abstract class Item {
     public static final String SULFURAS = "Sulfuras";
     public static final String AGED_BRIE = "Aged Brie";
     public static final String BACKSTAGE_PASSES = "Backstage passes";
@@ -13,9 +13,6 @@ public class Item {
         if (!name.equals(SULFURAS) && (quality > 50 || quality < 0)) {
             throw new IllegalArgumentException("The quality of the normal item should be between 0 and 50.");
         }
-        if (name.equals(NORMAL)) {
-            return new Normal(name, sellIn, quality);
-        }
         if (name.equals(SULFURAS)) {
             return new Sulfuras(name, sellIn, quality);
         }
@@ -25,7 +22,7 @@ public class Item {
         if (name.equals(BACKSTAGE_PASSES)) {
             return new BackstagePasses(name, sellIn, quality);
         }
-        return new Item(name, sellIn, quality);
+        return new Normal(name, sellIn, quality);
     }
 
     Item(String name, int sellIn, int quality) {
@@ -38,9 +35,7 @@ public class Item {
         return this.sellIn;
     }
 
-    public Item updateSellInAndQuality() {
-        return new Item(this.name, sellIn - 1, notLessThanZero((sellIn <= 0) ? quality - 2 : quality - 1));
-    }
+    public abstract Item updateSellInAndQuality();
 
     int notGreaterThanFifty(int quality) {
         return quality > 50 ? 50 : quality;
