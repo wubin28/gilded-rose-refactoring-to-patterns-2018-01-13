@@ -35,7 +35,9 @@ public abstract class Item {
         return this.sellIn;
     }
 
-    public abstract Item updateSellInAndQuality();
+    public Item updateSellInAndQuality() {
+        return newInstanceWithNameSellInAndQuality(name, updateSellIn(), updateQuality());
+    }
 
     int notGreaterThanFifty(int quality) {
         return quality > 50 ? 50 : quality;
