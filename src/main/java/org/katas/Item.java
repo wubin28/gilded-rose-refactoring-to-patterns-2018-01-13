@@ -22,6 +22,9 @@ public class Item {
         if (name.equals(AGED_BRIE)) {
             return new AgedBrie(name, sellIn, quality);
         }
+        if (name.equals(BACKSTAGE_PASSES)) {
+            return new BackstagePasses(name, sellIn, quality);
+        }
         return new Item(name, sellIn, quality);
     }
 
@@ -36,9 +39,6 @@ public class Item {
     }
 
     public Item updateSellInAndQuality() {
-        if (this.name.equals(BACKSTAGE_PASSES)) {
-            return new Item(this.name, sellIn - 1, notGreaterThanFifty(sellIn > 10 ? quality + 1 : (sellIn > 5 ? quality + 2 : (sellIn > 0 ? quality + 3 : 0))));
-        }
         return new Item(this.name, sellIn - 1, notLessThanZero((sellIn <= 0) ? quality - 2 : quality - 1));
     }
 
