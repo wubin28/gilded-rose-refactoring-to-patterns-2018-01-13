@@ -8,8 +8,4 @@ public class Sulfuras extends Item {
     public Item updateSellInAndQuality() {
         return new Sulfuras(this.name, updateSellIn(), quality);
     }
-
-    private int updateSellIn() {
-        return sellIn - 1;
-    }
 }
