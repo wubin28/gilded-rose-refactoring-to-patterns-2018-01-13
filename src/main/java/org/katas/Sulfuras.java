@@ -6,6 +6,10 @@ public class Sulfuras extends Item {
     }
     @Override
     public Item updateSellInAndQuality() {
-        return new Sulfuras(this.name, updateSellIn(), quality);
+        return new Sulfuras(this.name, updateSellIn(), updateQuality());
+    }
+
+    private int updateQuality() {
+        return quality;
     }
 }
