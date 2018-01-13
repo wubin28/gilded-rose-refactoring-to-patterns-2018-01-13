@@ -10,7 +10,8 @@ public class BackstagePasses extends Item {
         return new BackstagePasses(this.name, updateSellIn(), updateQuality());
     }
 
-    private int updateQuality() {
+    @Override
+    protected int updateQuality() {
         return notGreaterThanFifty(sellIn > 10 ? quality + 1 : (sellIn > 5 ? quality + 2 : (sellIn > 0 ? quality + 3 : 0)));
     }
 }

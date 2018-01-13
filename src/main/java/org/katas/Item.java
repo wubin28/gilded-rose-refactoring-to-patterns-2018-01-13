@@ -52,4 +52,6 @@ public abstract class Item {
     protected int updateSellIn() {
         return sellIn - 1;
     }
+
+    protected abstract int updateQuality();
 }

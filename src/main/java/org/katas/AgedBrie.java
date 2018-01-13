@@ -10,7 +10,8 @@ public class AgedBrie extends Item {
         return new AgedBrie(this.name, updateSellIn(), updateQuality());
     }
 
-    private int updateQuality() {
+    @Override
+    protected int updateQuality() {
         return notGreaterThanFifty(quality + 1);
     }
 }

@@ -10,7 +10,8 @@ public class Normal extends Item {
         return new Normal(super.name, updateSellIn(), updateQuality());
     }
 
-    private int updateQuality() {
+    @Override
+    protected int updateQuality() {
         return notLessThanZero((sellIn <= 0) ? quality - 2 : quality - 1);
     }
 }

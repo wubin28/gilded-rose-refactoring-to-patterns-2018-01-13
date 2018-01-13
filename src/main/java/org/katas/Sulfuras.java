@@ -9,7 +9,8 @@ public class Sulfuras extends Item {
         return new Sulfuras(this.name, updateSellIn(), updateQuality());
     }
 
-    private int updateQuality() {
+    @Override
+    protected int updateQuality() {
         return quality;
     }
 }
