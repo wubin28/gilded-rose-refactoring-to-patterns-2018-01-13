@@ -6,13 +6,12 @@ public abstract class Item {
     public static final String BACKSTAGE_PASSES = "Backstage passes";
     public static final String NORMAL = "Normal";
     public static final int MAX_QUALITY = 50;
-    public static final int MIN_QUALITY = 0;
     final int sellIn;
     final int quality;
     final String name;
 
     public static Item newInstanceWithNameSellInAndQuality(String name, int sellIn, int quality) {
-        if (!name.equals(SULFURAS) && (quality > MAX_QUALITY || quality < MIN_QUALITY)) {
+        if (!name.equals(SULFURAS) && (quality > MAX_QUALITY || quality < 0)) {
             throw new IllegalArgumentException("The quality of the normal item should be between 0 and 50.");
         }
         if (name.equals(SULFURAS)) {
