@@ -61,6 +61,8 @@ public class GildedRoseTest {
         assertThat(updatedItem.getQuality(), is(50));
     }
 
+    // TODO: the quality of aged brie should be no more than 50
+
     @Test
     public void the_Sulfuras_is_a_legendary_item_and_as_such_its_Quality_is_80_and_it_never_alters() {
         Item item = Item.newInstanceWithNameSellInAndQuality(Item.SULFURAS, -1, 80);
@@ -70,6 +72,9 @@ public class GildedRoseTest {
         assertThat(updatedItem.getSellIn(), is(-2));
         assertThat(updatedItem.getQuality(), is(80));
     }
+
+    // TODO: the quality of sulfuras should be always 80 even the sell in is greater than 0
+    // TODO: the quality of sulfuras should be always 80 when being initialized
 
     @Test
     public void the_quality_of_backstage_passes_increases_by_1_when_the_sellIn_are_more_than_10_days() {
@@ -120,5 +125,7 @@ public class GildedRoseTest {
         assertThat(updatedItem.getSellIn(), is(0));
         assertThat(updatedItem.getQuality(), is(50));
     }
+
+    // TODO: the quality of backstage passes should be no more than 50
 
 }
